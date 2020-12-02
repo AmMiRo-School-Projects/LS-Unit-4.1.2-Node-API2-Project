@@ -80,8 +80,8 @@ Configure the API to handle to the following routes:
 | [x] GET  | /api/posts              | Returns an array of all the post objects contained in the database.                                                                                                         |
 | [x] GET  | /api/posts/:id          | Returns the post object with the specified id.                                                                                                                              |
 | GET      | /api/posts/:id/comments | Returns an array of all the comment objects associated with the post with the specified id.                                                                                 |
-| DELETE   | /api/posts/:id          | Removes the post with the specified id and returns the **deleted post object**. You may need to make additional calls to the database in order to satisfy this requirement. |
-| PUT      | /api/posts/:id          | Updates the post with the specified `id` using data from the `request body`. Returns the modified document, **NOT the original**.                                           |
+| [x] DELETE   | /api/posts/:id          | Removes the post with the specified id and returns the **deleted post object**. You may need to make additional calls to the database in order to satisfy this requirement. |
+| [x] PUT      | /api/posts/:id          | Updates the post with the specified `id` using data from the `request body`. Returns the modified document, **NOT the original**.                                           |
 
 #### Endpoint Specifications
 
@@ -149,15 +149,15 @@ When the client makes a `GET` request to `/api/posts/:id`:
 
 When the client makes a `GET` request to `/api/posts/:id/comments`:
 
-- If the _post_ with the specified `id` is not found:
+- [x] If the _post_ with the specified `id` is not found:
 
-  - return HTTP status code `404` (Not Found).
+  - [x] return HTTP status code `404` (Not Found).
   - return the following JSON object: `{ message: "The post with the specified ID does not exist." }`.
 
-- If there's an error in retrieving the _comments_ from the database:
-  - cancel the request.
-  - respond with HTTP status code `500`.
-  - return the following JSON object: `{ error: "The comments information could not be retrieved." }`.
+- [x] If there's an error in retrieving the _comments_ from the database:
+  - [x] cancel the request.
+  - [x] respond with HTTP status code `500`.
+  - [x] return the following JSON object: `{ error: "The comments information could not be retrieved." }`.
 
 When the client makes a `DELETE` request to `/api/posts/:id`:
 
@@ -173,16 +173,16 @@ When the client makes a `DELETE` request to `/api/posts/:id`:
 
 When the client makes a `PUT` request to `/api/posts/:id`:
 
-- If the _post_ with the specified `id` is not found:
+- [x] If the _post_ with the specified `id` is not found:
 
-  - return HTTP status code `404` (Not Found).
-  - return the following JSON object: `{ message: "The post with the specified ID does not exist." }`.
+  - [x] return HTTP status code `404` (Not Found).
+  - [x] return the following JSON object: `{ message: "The post with the specified ID does not exist." }`.
 
-- If the request body is missing the `title` or `contents` property:
+- [x] If the request body is missing the `title` or `contents` property:
 
-  - cancel the request.
-  - respond with HTTP status code `400` (Bad Request).
-  - return the following JSON response: `{ errorMessage: "Please provide title and contents for the post." }`.
+  - [x] cancel the request.
+  - [x] respond with HTTP status code `400` (Bad Request).
+  - [x] return the following JSON response: `{ errorMessage: "Please provide title and contents for the post." }`.
 
 - If there's an error when updating the _post_:
 
@@ -190,11 +190,11 @@ When the client makes a `PUT` request to `/api/posts/:id`:
   - respond with HTTP status code `500`.
   - return the following JSON object: `{ error: "The post information could not be modified." }`.
 
-- If the post is found and the new information is valid:
+- [x] If the post is found and the new information is valid:
 
-  - update the post document in the database using the new information sent in the `request body`.
-  - return HTTP status code `200` (OK).
-  - return the newly updated _post_.
+  - [x] update the post document in the database using the new information sent in the `request body`.
+  - [x] return HTTP status code `200` (OK).
+  - [x] return the newly updated _post_.
 
 ## Stretch Problems
 
